@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>函数</title>
+</head>
+<body>
+	<script type="text/javascript">
+		function fn(){
+			console.log(1);
+		}
+		//打印函数名，就等于打印整个函数
+		console.log(fn);
+		//打印执行函数，就等于函数的返回值+功能
+		console.log(fn());
+		//函数定义
+		//提前解析，可以在任何地方使用和定义
+		function fn1(){
+			console.log(1);
+		}
+		//只能在函数后面进行函数的调用
+		var fn2=function(){
+			console.log(2);
+		}
+		//只能在函数后面进行调用
+		var fn3=new Function("console.log(3)");
+		//递归是一种思想
+		//递归的实质是函数自己调用自己
+		//递归必须有跳出条件，否则是死循环
+		var a=1;
+		
+		function fn1(){
+			alert("fdj");
+			a++;
+			alert(a);
+			if(a>3){
+				return;
+			}
+			fn1();
+		}
+		fn1();
+		//用递归求1到100的和
+		function getSum(n){
+			if(n<1){
+				return 0;
+			}
+			return n+getSum(n-1);
+		}
+		alert(getSum(100));
+		//回调函数：函数作为参数进行传递和使用
+		
+		function fn4(demo){
+			demo();
+		}
+		function test(){
+			console.log("我是被测试函数");
+		}
+		fn4(test);
+		//什么情况下使用回调函数
+		//回调函数一般是使用定义一个规则使用
+		//规则的传递只能通过函数实现，通过变量无法达成
+		function fnn(num1,num2,demo){
+			return demo(num1,num2);
+		}
+		//定义四个规则
+		function test1(a,b){
+			return a+b;
+		}
+		alert(fnn(10,5,test1));
+	</script>
+</body>
+</html>
