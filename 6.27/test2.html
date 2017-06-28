@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>对象</title>
+</head>
+<body>
+	<script type="text/javascript">
+		var hero=new Object();
+		//属性和方法 状态和行为
+		hero.money=10000;
+		hero.level=6;
+		hero.attack=function(){
+			console.log("attack a man");
+		}
+		console.log(hero.money);
+		hero.attack();
+		//函数创建多个对象
+		function createStu(name){
+			var student=new Object();
+			student.name=name;
+			student.sayHi=function(){
+				console.log(this.name+"说，大家好！");
+			}
+			return student;
+		}
+		var stu1=createStu("张三");
+		console.log(stu1);
+		stu1.sayHi();
+		//利用构造函数自定义对象
+		function Student(name){
+			this.name=name;
+			this.sayHi=function(){
+				console.log(this.name);
+			}
+		}
+		var stu3=new Student("王五");
+		console.log(stu3);
+		stu3.sayHi();
+	</script>
+</body>
+</html>

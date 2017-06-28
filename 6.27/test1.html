@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>函数</title>
+</head>
+<body>
+	<script type="text/javascript">
+		//输入某年某月某日，判断这一天是这一年的第几天
+		//闰年：能被4整除但是不能被100整除，世纪年能被400整除
+		function isRN(year){
+			if(year%4==0 && year%100!=0 || year%400==0){
+				return true;
+			}else{
+				return false;
+			}
+		}
+		function getDays(year,month,day){
+			var arr=[31,28,31,30,31,30,31,31,30,31,30,31];
+			for(var i=0;i<month-1;i++){
+				day=day+arr[i];
+			}
+			if(isRN(year)&&month>2){
+				day+=1;
+			}
+			return day;
+		}
+		console.log(getDays(2016,3,1));
+		//匿名函数
+		(function (){
+			console.log(1);
+		})
+
+		// (function(){
+		// 	console.log(1);
+		// })();
+
+		//绑定事件
+		document.onclick=function(){
+			alert(1);
+		}
+
+		setInterval(function(){
+			console.log(123);
+		},1000);
+
+		
+	</script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>对象和面向对象</title>
+</head>
+<body>
+	<script type="text/javascript">
+		var obj1=new Object();
+		console.log(obj1);
+		var arr=[];
+		var obj2={};
+		console.log(obj2);
+		var obj3={
+			name:"张三",
+			age:18,
+			sayHi:function(){
+				console.log("hi");
+			}
+		};
+		console.log(obj3);
+		obj3.sayHi();
+		//json和对象字面量的区别
+		var json={
+			"name":"Jack",
+			"age":18,
+			"arr":[1,2,3]
+		};
+		console.log(json);
+		for(var i=0;i<json.length;i++){
+			console.log(json[i]);
+		}
+		for(var key in json){
+			console.log(key);
+			console.log(json[key]);
+		} 
+		alert(sum(10,10));
+		var sum=function(num1,num2){
+			return num1+num2;
+		};
+	</script>
+</body>
+</html>
