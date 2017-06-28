@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>数组复习</title>
+</head>
+<body>
+	<script type="text/javascript">
+		var arr1=[1,2,3,4];
+		var arr2=new Array(1,2);
+		console.log(arr1 instanceof Array);
+		console.log(Array.isArray(arr2));
+		//数组转换
+		console.log(arr1);
+		console.log(arr1.toString());
+		//JOIN
+		var arr=["China","American","England"];
+		var str=arr.join(" and ");
+		var str1=arr.join("&");
+		console.log(arr);
+		console.log(str1);
+		console.log(str);
+		//伪数组
+		function fn(a,b){
+			//arguments只能在函数中使用，实参的数组
+			console.log(arguments);
+			//伪数组,可以修改元素，不能修改长度
+			console.log(fn.length);//形参个数
+			console.log(arguments.length);//实参个数
+			console.log(arguments.callee);//打印整个函数
+		}
+		fn(1,2);
+		fn(1,2,3,4,5);
+		//添加和删除操作
+		var a=["China","American","England"];
+		console.log(a);
+		a.push("India");
+		console.log(a);
+		a.pop();
+		console.log(a);
+		//数组的反转和排序
+		var a1=["a","b","c","f","t","u"];
+		console.log(a1);
+		var a2=a1.reverse();	
+		console.log(a2);
+		console.log(a1);//原数组已被修改
+		//排序sort，功能很强大，但是只能通过第一位排序
+		//解决方法设置回调函数
+		console.log(a1.sort());
+		var a3=[1,2,34,5,2,5,54,14];
+		console.log(a3);
+		console.log(a3.sort(function(a,b){
+			return b-a;
+		}));
+		// 数组的截取和替换
+		var arr1=["a","b","c"];
+		var arr2=[1,2,3];
+		var arr3=arr1.concat(arr2);
+		console.log(arr1);
+		console.log(arr2);
+		console.log(arr3); 
+		var arr4=arr3.slice(3);
+		console.log(arr3);
+		console.log(arr4);
+
+
+		var arr5=arr3.splice(0,3);
+		console.log(arr3);
+		console.log(arr5);//操作和截取原数组
+
+		// //数组遍历
+		var a=["China","American","England"];
+		a.every(function(item,index,array){
+			console.log(item);
+			console.log(index);
+			console.log(array);
+			return true;
+		});
+	    
+
+	    var b=a.filter(function(ele,index,arr){
+	    	if(ele.length>5){
+	    		return true;
+	    	}
+	    	return false;
+	    });
+	    console.log(b);
+
+
+	    a.forEach(function(ele,index,arr){
+	    	console.log(arr);
+	    });
+
+	    //数组案例
+	    var arr=["中国","美国","日本"];
+	    var str=arr[0];
+	    var seperator="|";
+	    for(var i=0;i<arr.length;i++){
+	    	str+=seperator+arr[i];
+	    }
+	    console.log(arr.join("|"));
+	    
+
+	    var arr=[1,2,3,4,5];
+	    function fn(){
+	    	var newArr=[];
+	    	for(var i=arr.length-1;i>=0;i--){
+	    		newArr[newArr.length]=arr[i];
+	    	}
+	    	return newArr;
+	    }
+	    console.log(fn(arr));
+
+	    function reverse2(array){
+	    	for(var i=0;i<array.length/2;i++){
+	    		var temp=array[i];
+	    		array[i]=array[array.length-1-i];
+	    		array[array.length-1-i]=temp;
+	    	}
+	    	return array;
+	    }
+	    console.log(reverse2(arr));
+
+	    console.log(arr.reverse());
+	    
+
+
+	    var arr=[15001200,2000,2100,1800];
+	    var arr2=arr.filter(function(ele,index,rray){
+	    	if(ele<2000){
+	    		return true;
+	    	}
+	    	return false;
+	    })
+	    console.log(arr2);
+	    
+
+	     var arr=["c","a","x","a","x","a","c"];
+	    var json={};
+	    for(var i=0;i<arr.length;i++){
+	    		if(json[arr[i]]){
+	    			json[arr[i]]+=1;
+	    		}else{
+	    			json[arr[i]]=1;
+	    		}
+	    	}
+	    console.log(json);
+
+
+	    function fn(arr){
+	    	var newArr=[];
+	    	for(var i=0;i<arr.length;i++){
+	    		var bool=true;
+	    		for(var j=0;j<newArr.length;j++){
+	    			if(arr[i]===newArr[j]){
+	    				bool=false;
+	    			}
+	    		}
+	    		if(bool){
+	    			newArr[newArr.length]=arr[i];
+	    		}
+	    	}
+	    	return newArr;
+	    }
+	    console.log(fn(arr));
+	    
+	    
+	    // 构造函数原理
+	    var num1=new Number(111);
+	    console.log(num1);
+
+	    var num2=Number("111");
+	    console.log(num2);
+
+	</script>
+</body>
+</html>
